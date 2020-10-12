@@ -19,8 +19,8 @@ class CreateTasksTable extends Migration
             $table->string('description');
             $table->date('due-date');
             $table->string('state');
-            $table->foreignId('task_user_id');
-            $table->foreign('task_user_id')->references('id')->on('users');
+            $table->foreignId('tasks_user_id');
+            $table->foreign('tasks_user_id')->references('id')->on('users');
 
         });
     }
