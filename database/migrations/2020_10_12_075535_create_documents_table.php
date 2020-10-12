@@ -13,8 +13,8 @@ class CreateDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attachments', function (Blueprint $table) {
-            $table->id();
+        Schema::create('documents', function (Blueprint $table) {
+            $table->id('documents_id');
             $table->string('filename');
             $table->string('size');
             $table->string('title');
