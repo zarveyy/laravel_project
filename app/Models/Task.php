@@ -12,4 +12,13 @@ class Task extends Model
     protected $table = 'tasks';
     protected $primaryKey = 'tasks_id';
 
+    public function comments(){
+
+        return $this->hasManyThrough('App\Models\Comment' , 'App\Models\User');
+    }
+    public function attachments(){
+
+        return $this->hasManyThrough('App\Models\Attachment' , 'App\Models\User');
+    }
+
 }

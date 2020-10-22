@@ -13,4 +13,11 @@ class User extends Model
     protected $table = 'users';
     protected $primaryKey = 'user_id';
 
+    public function attachments(){
+        return $this->hasManyThrough('App\Models\Attachment' , 'App\Models\Task');
+    }
+    public function comments(){
+        return $this->hasManyThrough('App\Models\Comment' , 'App\Models\Task');
+    }
+
 }

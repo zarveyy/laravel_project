@@ -13,4 +13,14 @@ class Comment extends Model
     protected $primaryKey = 'comments_id';
     public $timestamps = false;
 
+    public function user() {
+        
+        return $this->hasOne('App\Models\User');
+
+    }
+    public function task() {
+        
+        return $this->hasOne('App\Models\Task');
+
+    }
 }
