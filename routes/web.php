@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('categories',[CategoryController::class, 'index'])->name('categories.index'); //renvoi toute les catégories
+Route::get('categories/{Category}',[CategoryController::class, 'show']); //renvoi la category de l'url
+

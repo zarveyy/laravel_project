@@ -21,6 +21,9 @@ class CreateTasksTable extends Migration
             $table->string('state');
             $table->foreignId('tasks_user_id');
             $table->foreign('tasks_user_id')->references('id')->on('users');
+            $table->dropForeign("task_user_id");
+            $table->foreignId('board_id');
+            $table->foreign("board_id")->references('id')->on('boards');
 
         });
     }

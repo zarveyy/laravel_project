@@ -19,5 +19,9 @@ class User extends Model
     public function comments(){
         return $this->hasManyThrough('App\Models\Comment' , 'App\Models\Task');
     }
+    public function board_user() {
+        return $this->belongsToMany('App\Models\Board', 'board_user');
+
+    }
 
 }

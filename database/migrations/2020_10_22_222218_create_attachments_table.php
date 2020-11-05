@@ -18,7 +18,7 @@ class CreateAttachmentsTable extends Migration
             $table->string('filename');
             $table->string('size');
             $table->string('title');
-            $table->binary('blob');
+            $table->binary('file');
             $table->foreignId('id_users');
             $table->foreign('id_users')->references('id')->on('users');
         });
