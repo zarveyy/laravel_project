@@ -19,6 +19,6 @@ class BoardUser extends Model
         return $this->belongsTo('App\Models\Board');
     }
     public function tasks(){
-        return $this->hasManyThrough('App\Models\Task', 'App\Models\Board', 'id', 'board_id');
+        return $this->hasManyThrough('App\Models\Task', 'App\Models\Board', 'id', 'board_id', 'board_id' );
     }
 }

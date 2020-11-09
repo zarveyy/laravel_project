@@ -11,10 +11,12 @@ class Board extends Model
 
     protected $primaryKey = 'id';
 
+
     public function tasks(){
         return $this->hasMany('App\Models\Task');
     }
     public function users(){
         return $this->belongsToMany('App\Models\User');
     }
+
 }
