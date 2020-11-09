@@ -14,13 +14,23 @@ class CreateAttachmentsTable extends Migration
     public function up()
     {
         Schema::create('attachments', function (Blueprint $table) {
-            $table->id('attachments_id');
+            $table->id();
+            $table->binary('file');
             $table->string('filename');
             $table->string('size');
-            $table->string('title');
-            $table->binary('file');
-            $table->foreignId('id_users');
-            $table->foreign('id_users')->references('id')->on('users');
+            $table->string('type');
+            $table->timestamps();
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->bigInteger('task_id')->unsigned();
+            $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade')->onUpdate('cascade');
+
+            $table->engine='InnoDB';
+
+
+
+
+
         });
     }
 

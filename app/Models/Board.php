@@ -8,10 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Board extends Model
 {
     use HasFactory;
-    protected $table = 'boards';
-    protected $primaryKey = 'board_id';
 
-    public function owner(){
-        return $this->hasOne('App\Models\User' , 'user_id');
+    public function tasks(){
+        return $this->hasMany('App\Models\Task');
+    }
+
+    public function users(){
+        return $this->belongsToMany('App\Models\User');
     }
 }

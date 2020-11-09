@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Database;
+namespace Tests\Unit\database;
 
 use Tests\TestCase;
 use Illuminate\Support\Facades\Schema;
@@ -26,7 +26,7 @@ class BoardTest extends TestCase
 
     /**
      * Vérifie que le modèle est bien sauvé dans la base de donnée
-     * 
+     *
      * @return void
      */
     public function testBoardIsSavedInDatabase() {
@@ -42,23 +42,23 @@ class BoardTest extends TestCase
      */
     public function testBoardIsDeletedFromDatabase() {
 
-        $board = Board::factory()->create(); 
+        $board = Board::factory()->create();
         BoardUser::factory()->create(["board_id" => $board->id]);
         Task::factory()->create(["board_id" => $board->id]);
-        $board->delete(); 
+        $board->delete();
         $this->assertDeleted($board);
     }
-    
+
     /**
      * Vérifie que la contrainte de clé étrangère pour l'utilisateur est bien prise en compte dans la table liée au modèle Board
      *
      * @return void
      */
-    public function testBoardDatabaseThrowsIntegrityConstraintExceptionOnNonExistingUserId() 
+    public function testBoardDatabaseThrowsIntegrityConstraintExceptionOnNonExistingUserId()
     {
         $this->expectException("Illuminate\Database\QueryException");
         $this->expectExceptionCode(23000);
         Board::factory()->create(['user_id' =>0]);
     }
-      
+
 }

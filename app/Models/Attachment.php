@@ -9,9 +9,6 @@ class Attachment extends Model
 {
     use HasFactory;
 
-    protected $table = 'attachments';
-    protected $primaryKey = 'attachments_id';
-
     public function task(){
 
         return $this->belongsTo('App\Models\Task');
