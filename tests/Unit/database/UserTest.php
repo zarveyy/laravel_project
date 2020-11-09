@@ -12,7 +12,7 @@ class UserTest extends TestCase
     use RefreshDatabase;
 
     //----------- Database Testing --------------//
-    
+
     /**
      * Teste les colonnes de la table correspondant au modèle User
      *
@@ -21,7 +21,7 @@ class UserTest extends TestCase
     public function testUserTableHasExpectedColumns()
     {
         $this->assertTrue(
-            Schema::hasColumns('users', 
+            Schema::hasColumns('users',
                 [
                     "id", "name", "email", "email_verified_at", "password",
                     "created_at", "updated_at"
@@ -32,7 +32,7 @@ class UserTest extends TestCase
 
     /**
      * Vérifie que le modèle est bien sauvé dans la base de donnée
-     * 
+     *
      * @return void
      */
     public function testUserIsSavedInDatabase() {
@@ -42,21 +42,21 @@ class UserTest extends TestCase
 
     /**
      * Vérifie qu'un utilisateur peut être supprimé, même s'il est réferencé par d'autres modèles
-     * 
+     *
      * @depends testUserIsSavedInDatabase
      * @return void
      */
     public function testUserIsDeletedFromDatabase() {
 
-        $user = User::factory()->create(); 
+        $user = User::factory()->create();
         Task::factory()->create(["user_id" => $user->id]);
         Attachment::factory()->create(["user_id" => $user->id]);
         Comment::factory()->create(["user_id" => $user->id]);
         TaskUser::factory()->create(["user_id" => $user->id]);
 
-        $user->delete(); 
+        $user->delete();
         $this->assertDeleted($user);
     }
 
- 
+
 }

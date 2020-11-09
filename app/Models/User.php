@@ -10,14 +10,16 @@ class User extends Model
 {
     use HasFactory, Notifiable;
 
+    protected $primaryKey = 'id';
+
     public function attachments(){
-        return $this->hasManyThrough('App\Models\Attachment' , 'App\Models\Task');
+        return $this->hasMany('App\Models\Attachment');
     }
     public function comments(){
-        return $this->hasManyThrough('App\Models\Comment' , 'App\Models\Task');
+        return $this->hasMany('App\Models\Comment');
     }
     public function boards() {
-        return $this->belongsToMany('App\Models\Board', 'board_user', 'board_id', 'user_id');
+        return $this->belongsToMany('App\Models\Board');
 
     }
 

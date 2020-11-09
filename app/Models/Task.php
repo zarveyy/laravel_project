@@ -10,15 +10,22 @@ class Task extends Model
     use HasFactory;
 
     protected $table = 'tasks';
-    protected $primaryKey = 'tasks_id';
+    protected $primaryKey = 'id';
+
 
     public function comments(){
 
-        return $this->hasManyThrough('App\Models\Comment' , 'App\Models\User');
+        return $this->hasMany('App\Models\Comment');
     }
     public function attachments(){
 
-        return $this->hasManyThrough('App\Models\Attachment' , 'App\Models\User');
+        return $this->hasMany('App\Models\Attachment');
+    }
+    public function category(){
+        return $this->belongsTo('App\Models\Category');
+    }
+    public function board(){
+        return $this->belongsTo('App\Models\Board');
     }
 
 }

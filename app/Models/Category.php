@@ -9,6 +9,8 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
     public function tasks() {
 
         return $this->hasMany('App\Models\Task');

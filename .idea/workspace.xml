@@ -20,31 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59cb8820-5970-43e9-966b-8e12e5d6e0f1" name="Default Changelist" comment="added relations">
-      <change afterPath="$PROJECT_DIR$/database/factories/AttachmentFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/BoardFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/BoardUserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/CategoryFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/CommentFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/TaskFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/TaskUserFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/mcd/todo.mcd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/mcd/todo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Attachment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Attachment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Board.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Board.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Comment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Comment.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Task.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_074307_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_074307_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_075403_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_075403_create_comments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_075622_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_074306_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_12_093948_create_tasks_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_074309_create_tasks_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_10_22_222218_create_attachments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_074310_create_attachments_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_05_081920_create_boards_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_10_12_074308_create_boards_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_05_090029_create_board_user_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/database/BoardTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/database/BoardTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/factories/TaskFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/TaskFactory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Unit/database/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/database/UserTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -250,7 +232,7 @@
       <workItem from="1603448924916" duration="266000" />
       <workItem from="1603449220710" duration="259000" />
       <workItem from="1604563989808" duration="8706000" />
-      <workItem from="1604934468837" duration="10220000" />
+      <workItem from="1604934468837" duration="12516000" />
     </task>
     <task id="LOCAL-00001" summary="created migration">
       <created>1602496605739</created>
@@ -301,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604567776961</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="all migrations test passed">
+      <created>1604944817002</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604944817002</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -326,7 +315,8 @@
     <MESSAGE value="added relations" />
     <MESSAGE value="added board, pivot table" />
     <MESSAGE value="added test" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test" />
+    <MESSAGE value="all migrations test passed" />
+    <option name="LAST_COMMIT_MESSAGE" value="all migrations test passed" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1603447333839">
@@ -366,11 +356,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="506" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604937931651" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1604567872583">
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1604944819748">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603406792978" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604567872583" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604944819748" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603406674173">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
