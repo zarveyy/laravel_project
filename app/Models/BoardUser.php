@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class BoardUser extends Model
+class BoardUser extends Pivot
 {
     use HasFactory;
 
-    protected $table = 'board_user';
-    protected $primaryKey = 'id';
+    public $incrementing = true;
 
     public function user(){
         return $this->belongsTo('App\Models\User');
@@ -19,6 +19,12 @@ class BoardUser extends Model
         return $this->belongsTo('App\Models\Board');
     }
     public function tasks(){
-        return $this->hasManyThrough('App\Models\Task', 'App\Models\Board', 'id', 'board_id', 'board_id' );
+        return $this->hasManyThrough(
+            'App\Models\Task',
+            'App\Models\Board',
+            'id',
+            'board_id',
+            'board_id'
+        );
     }
 }

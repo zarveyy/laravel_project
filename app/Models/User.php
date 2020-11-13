@@ -18,9 +18,29 @@ class User extends Model
     public function comments(){
         return $this->hasMany('App\Models\Comment');
     }
+    public function ownedBoards(){
+        return $this->hasMany('App\Models\Board');
+    }
     public function boards() {
-        return $this->belongsToMany('App\Models\Board');
-
+        return $this->belongsToMany('App\Models\Board')
+                    ->using('App\Models\BoardUser')
+                    ->withTimestamps()
+                    ->withPivot('id');
     }
 
+    public function assignedTasks(){
+        return $this->belongsToMany('App\Models\Task')
+            ->using('App\Models\TaskUser')
+            ->withTimestamps()
+            ->withPivot('id');
+    }
+    public function allTasks(){
+        return $this->hasManyThrough(
+            Task::class,
+            BoardUser::class,
+            'board_id',
+            'id',
+            'board_id'
+        );
+    }
 }

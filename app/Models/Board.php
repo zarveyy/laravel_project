@@ -16,7 +16,13 @@ class Board extends Model
         return $this->hasMany('App\Models\Task');
     }
     public function users(){
-        return $this->belongsToMany('App\Models\User');
+        return $this->belongsToMany('App\Models\User')
+                    ->using('App\Models\BoardUser')
+                    ->withTimestamps()
+                    ->withPivot('board_id', 'user_id');
     }
+    public function owner(){
+        return $this->belongsTo(User::class, 'user_id');
+}
 
 }

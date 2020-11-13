@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -23,6 +26,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Board.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Board.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/BoardUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BoardUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Task.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TaskUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/TaskUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,19 +182,21 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/database" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\axelb\Bureau\YNOV\B2\PHP Framework\laravel_project1\database" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\axelb\Bureau\YNOV\B2\PHP Framework\laravel_project1\tests" />
       <recent name="C:\Users\axelb\Bureau\YNOV\B2\PHP Framework\laravel_project1\database\factories" />
       <recent name="C:\Users\axelb\Bureau\YNOV\B2\PHP Framework\laravel_project1\resources\views\layout" />
       <recent name="C:\Users\axelb\Bureau\YNOV\B2\PHP Framework\laravel_project1\resources\views" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\axelb\Bureau\YNOV\B2\PHP Framework\laravel_project1\database" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.AttachmentTest">
@@ -229,7 +237,12 @@
       <workItem from="1604563989808" duration="8706000" />
       <workItem from="1604934468837" duration="14210000" />
       <workItem from="1604948838346" duration="2001000" />
-      <workItem from="1604952566770" duration="790000" />
+      <workItem from="1604952566770" duration="2316000" />
+      <workItem from="1604996943038" duration="157000" />
+      <workItem from="1605113561928" duration="1218000" />
+      <workItem from="1605204856844" duration="137000" />
+      <workItem from="1605272526360" duration="1041000" />
+      <workItem from="1605276483671" duration="6668000" />
     </task>
     <task id="LOCAL-00001" summary="created migration">
       <created>1602496605739</created>
@@ -308,7 +321,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604948769693</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added new tests">
+      <created>1604953607975</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1604953607975</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added new tests">
+      <created>1604953631133</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1604953631133</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,7 +363,8 @@
     <MESSAGE value="all migrations test passed" />
     <MESSAGE value="55 out of 67 test passed" />
     <MESSAGE value="56 out of 67 test passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="56 out of 67 test passed" />
+    <MESSAGE value="added new tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="added new tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" width="816" height="729" key="#Intentions" timestamp="1603447333839">
@@ -351,6 +379,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1602576457900" />
+    <state x="1257" y="133" width="548" height="780" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1605279839193">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1257" y="133" width="548" height="780" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1605279839193" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603439041827">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -372,15 +404,15 @@
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603405115435" />
     <state x="346" y="72" key="SettingsEditor/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604571085753" />
-    <state width="506" height="446" key="SwitcherDM" timestamp="1604937931651">
+    <state width="506" height="446" key="SwitcherDM" timestamp="1605280433422">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="506" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604937931651" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1604948771142">
+    <state width="506" height="446" key="SwitcherDM/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1605280433422" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1604953609990">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1603406792978" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604948771142" />
+    <state x="451" y="183" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604953609990" />
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603406674173">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -389,10 +421,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603406349310" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1604937924738">
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1605281138988">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602579584317" />
-    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1604937924738" />
+    <state x="-1489" y="145" width="672" height="679" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1536.824@-1920.0.1536.824" timestamp="1605277117196" />
+    <state x="539" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1536.824@0.0.1920.1040" timestamp="1605281138988" />
   </component>
 </project>
