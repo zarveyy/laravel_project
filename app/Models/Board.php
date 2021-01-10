@@ -9,20 +9,47 @@ class Board extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id';
-
-
-    public function tasks(){
-        return $this->hasMany('App\Models\Task');
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::created(function ($board) {
+            $board_user = new BoardUser(); 
+            $board_user->board_id = $board->id; 
+            $board_user->user_id = $board->user_id; 
+            $board_user->save();
+        });
     }
-    public function users(){
+
+
+    /**
+     * Renvoie l'utilisateur propriétaire du board (celui qui l'a créé)
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function owner()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    } 
+
+
+    /**
+     * Renvoie tous les utilisateurs qui sont associés au board, c'est à dire les participants
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
         return $this->belongsToMany('App\Models\User')
-                    ->using('App\Models\BoardUser')
-                    ->withTimestamps()
-                    ->withPivot('board_id', 'user_id');
+                    ->using("App\Models\BoardUser")
+                    ->withPivot("id")
+                    ->withTimestamps();
     }
-    public function owner(){
-        return $this->belongsTo(User::class, 'user_id');
-}
+
+    public function tasks() {
+        return $this->hasMany(Task::class);
+    }
 
 }

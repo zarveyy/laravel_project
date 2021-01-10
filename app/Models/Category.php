@@ -4,17 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Task;
 
 class Category extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id';
-
-    public function tasks() {
-
-        return $this->hasMany('App\Models\Task');
-
+    /**
+     * Renvoi la liste des tâches possédant cette catégorie
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
-
 }

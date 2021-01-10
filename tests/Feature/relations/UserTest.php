@@ -4,7 +4,7 @@ namespace Tests\Feature\Relations;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Models\{User, Comment, Attachment, Task};
+use App\Models\{User, Comment, Attachment, Task, Board, TaskUser};
 
 class UserTest extends TestCase
 {
@@ -73,9 +73,13 @@ class UserTest extends TestCase
     public function testUserHasManyAssignedTasks()
     {
         $nb         = 3; 
-        $user       = User::factory()
-                        ->hasAssignedTasks($nb)
-                        ->create();
+        $user       = User::factory()->create();
+        $board      = Board::factory()->hasTasks($nb)->create(['user_id' => $user->id]);
+        
+        foreach($board->tasks()->get() as $task) {
+            TaskUser::factory()->create(['task_id' => $task->id, 'user_id' => $user->id]);
+        }
+        
 
         // test 1: Le nombre de tâches assignées à l'utilisateurs est bien égal à $nb (le jeu de données fourni dans la fonction).
         $this->assertEquals($nb, $user->assignedTasks->count());

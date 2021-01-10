@@ -2,9 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\BoardUser;
-use App\Models\Board;
-use App\Models\User;
+use App\Models\{BoardUser, User, Board};
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BoardUserFactory extends Factory
@@ -24,10 +22,12 @@ class BoardUserFactory extends Factory
     public function definition()
     {
         return [
-            'created_at' => $this -> faker -> date(),
-            'updated_at' => $this -> faker -> date(),
-            'board_id' => Board::factory(),
+            //
             'user_id' => User::factory(),
+            'board_id' => Board::factory(), 
+            'created_at' => now(),
+            'updated_at' => now(),
+
         ];
     }
 }

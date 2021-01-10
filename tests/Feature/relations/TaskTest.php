@@ -3,7 +3,7 @@
 namespace Tests\Feature\Relations;
 
 use Tests\TestCase;
-use App\Models\{Category, User, Task, Comment, Attachment, Board, BoardUser};
+use App\Models\{Category, User, Task, Comment, Attachment, Board, BoardUser, TaskUser};
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class TaskTest extends TestCase
@@ -28,6 +28,10 @@ class TaskTest extends TestCase
         // Méthode 2: Le nombre de propiétaires de la tâche est bien égal à 1
         $this->assertEquals(1, $task->board()->count());
 
+        //Aide : 
+        $this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\BelongsTo', $task->board());
+
+
     }
 
     /**
@@ -45,6 +49,9 @@ class TaskTest extends TestCase
         
         // Méthode 2: Le nombre de catégorie de la tâche est bien égal à 1
         $this->assertEquals(1, $task->category()->count());
+
+        //Aide : 
+        $this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\BelongsTo', $task->category());
 
     }
 
@@ -86,6 +93,7 @@ class TaskTest extends TestCase
         // Test 1 : Le nombre d'utilisateur de la tâche est bien égal à $nb (le jeu de données fourni dans la fonction).
         $this->assertEquals($nb+1, $task->participants->count());
 
+
     }
 
     /**
@@ -96,15 +104,20 @@ class TaskTest extends TestCase
     public function testTaskHasManyAssignedUsers()
     {
         $nb         = 3; 
-        $task       = Task::factory()
-                        ->hasAssignedUsers($nb)
-                        ->create();
+        $board      = Board::factory()->hasUsers($nb-1)->create();
+        $task       = Task::factory()->create(['board_id' => $board->id]);
+        foreach($board->users()->get() as $user) {
+            TaskUser::factory()->create(['task_id' => $task->id, 'user_id' => $user->id]);
+        }
         
         // test 1: Le nombre d'utilisateurs assignés à la tâche est bien égal à $nb (le jeu de données fourni dans la fonction).
         $this->assertEquals($nb, $task->assignedUsers->count());
 
         // Test 2: Les utilisateurs assignés sont bien liés à la tâche et sont bien une collection.
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $task->assignedUsers);
+
+        //Aide : 
+        $this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\BelongsToMany', $task->assignedUsers());
     }
 
 
@@ -160,9 +173,12 @@ class TaskTest extends TestCase
      * @return void
      */
     public function testTaskHasPivotClassForAssignedUsers() {
-        $task       = Task::factory()
-                        ->hasAssignedUsers(1)
-                        ->create();
+
+        
+        $board      = Board::factory()->create();
+        $task       = Task::factory()->create(['board_id' => $board->id]);
+        TaskUser::factory()->create(['task_id' => $task->id, 'user_id' => $board->user_id]);
+        
         $this->assertInstanceOf('App\Models\TaskUser', $task->assignedUsers()->first()->pivot);
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Relations\Pivot', $task->assignedUsers()->first()->pivot);
     }

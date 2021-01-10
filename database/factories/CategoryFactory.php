@@ -19,11 +19,14 @@ class CategoryFactory extends Factory
      *
      * @return array
      */
-
     public function definition()
     {
         return [
-            'name' => $this -> faker->name,
+            //
+            'name' => $this->faker->word ,
+            'created_at' => now(),
+            'updated_at' => now(),
+
         ];
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,6 +24,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        if (env("APP_DEBUG"))
+        {
+            DB::listen(function ($query) {
+                // echo("DB: " . $query->sql . "[".  implode(",",$query->bindings). "]\n");
+            });
+        }
+    
     }
 }

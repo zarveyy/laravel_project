@@ -2,11 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\BoardUser;
-use App\Models\Task;
-use App\Models\User;
-use App\Models\Category;
-use App\Models\Board;
+use App\Models\{Task, User, Category, Board};
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class TaskFactory extends Factory
@@ -25,16 +21,20 @@ class TaskFactory extends Factory
      */
     public function definition()
     {
+
+        $dt = $this->faker->dateTimeBetween($startDate = 'now', $endDate = '+3 months');
+        $date = $dt->format("Y-m-d"); // 1994-09-24
         return [
-            'title' => $this -> faker-> title,
-            'description' => $this -> faker-> sentence,
-            'due_date' => $this -> faker -> date(),
-            'state' => $this -> faker -> word(),
-            'created_at' => $this -> faker -> date(),
-            'updated_at' => $this -> faker -> date(),
-            'category_id' => Category::factory(),
-            'user_id' => User::factory(),
+            //'user_id' => User::factory(),
             'board_id' => Board::factory(),
+            'title' => $this->faker->sentence,
+            'description' => $this->faker->paragraph,
+            'due_date' => $date,
+            'state' => $this->faker->randomElement(['todo' ,'ongoing', 'done']),
+            'category_id' => Category::factory(), 
+            'created_at' => now(),
+            'updated_at' => now(),
+
         ];
     }
 }

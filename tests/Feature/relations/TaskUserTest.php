@@ -29,6 +29,9 @@ class TaskUserTest extends TestCase
         // Méthode 2: Le nombre d'utilisateur auquels est associée le modèle est bien égal à 1
         $this->assertEquals(1, $task_user->user()->count());
 
+        //Aide : 
+        $this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\BelongsTo', $task_user->user());
+
     }
 
 
@@ -49,6 +52,30 @@ class TaskUserTest extends TestCase
         // Méthode 2: Le nombre de tâches auquelles est associé le modèle est bien égal à 1
         $this->assertEquals(1, $task_user->task()->count());
 
+        //Aide : 
+        $this->assertInstanceOf('\Illuminate\Database\Eloquent\Relations\BelongsTo', $task_user->task());
+
+    }
+
+
+    /**
+     * 
+     * Vérifie qu'une tâche ne peut pas être assigné à un utilisateur qui n'est pas dans le board
+     * 
+     * @return void
+     */
+    public function testTaskIsNotAssignedToUserWhoDoesNotBelongToSameBoard() {
+        // On va créer une tâche => la factory créé un board avec un propriétaire qui est aussi participant. 
+        $task = Task::factory()->create(); 
+        // Je créé un utilisateur indépendant du board
+        $user = User::factory()->create(); 
+        // On assigne l'utilisateur à la tâche 
+        $task_user = new TaskUser(); 
+        $task_user->user_id = $user->id; 
+        $task_user->task_id = $task->id; 
+        $task_user->save(); 
+        // On vérifie dans la base de donnée que l'assignation de l'utilisateur à la tâche n'est pas enregistrée
+        $this->assertDatabaseMissing('task_user', $task_user->attributesToArray());
     }
 
 }

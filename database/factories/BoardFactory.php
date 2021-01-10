@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Board;
-use App\Models\User;
+use App\Models\{Board, User};
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class BoardFactory extends Factory
@@ -19,17 +19,16 @@ class BoardFactory extends Factory
      * Define the model's default state.
      *
      * @return array
-     *
      */
     public function definition()
     {
         return [
-            'title' => $this -> faker-> title,
-            'description' => $this -> faker-> sentence,
-            'due_date' => $this -> faker->date(),
-            'created_at' => $this -> faker -> date(),
-            'updated_at' => $this -> faker -> date(),
-            'user_id' => User::factory(),
+            'user_id' => User::factory(), 
+            'title' => $this->faker->sentence, 
+            'description' => $this->faker->paragraph, 
+            'created_at' => now(),
+            'updated_at' => now(),
+
         ];
     }
 }
